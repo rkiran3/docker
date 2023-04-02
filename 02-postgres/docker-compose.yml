@@ -1,0 +1,14 @@
+version: '2'
+services:
+  postgres:
+    image: onjin/alpine-postgres:9.5
+    restart: unless-stopped
+    ports:
+      - "5433:5433"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: mydb
+    stdin_open: true
+    tty: true
+  
