@@ -4,3 +4,9 @@ __pycache__/
 .vscode/
 env/
 venv/
+
+# ignore secrets file
+.env
+
+# ignore test file used
+**/metra.json

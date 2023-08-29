@@ -2,4 +2,4 @@ version: '2'
 services:
   hello_world:
     image: ubuntu
-    command: ["/bin/echo", "'Hello, World from docker compose,',  `echo date` " ]
+    command: ["/bin/echo", "'Hello, World from docker compose,',  `date` " ]

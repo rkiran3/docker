@@ -2,7 +2,10 @@
 import datetime
 
 from flask import Flask, jsonify, render_template
+# for loading secrets file
+from dotenv import load_dotenv 
 
+import os
 import json
 import logging
 # from datetime import datetime, tzinfo
@@ -11,7 +14,17 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG)
 
-logging.debug("Start")
+logging.info("Start")
+
+# read in the secrets file
+load_dotenv()
+
+api_key = os.getenv("API_KEY")
+api_secret = os.getenv("API_SECRET")
+
+logging.info(f" API_KEY: {api_key}")
+logging.info(f" API_SECRET: {api_secret}")
+
 
 app = Flask(__name__)
 
@@ -57,7 +70,7 @@ def getTrains(routeId):
                     route_id = trip["route_id"]
                 if "trip_id" in trip:
                     trip_id = trip["trip_id"]
-                #logging.debug(
+                # logging.debug(
                 #    "Route id: [{}] trip_id [{}]".format(route_id, trip_id))
 
                 if (route_id == routeId):
@@ -65,9 +78,11 @@ def getTrains(routeId):
 
     return trains
 
+
 @app.route('/', methods=['GET'])
 def hello_world():
-    return jsonify({'message' : 'Hello, World!'})
+    return jsonify({'message': 'Hello, World!'})
+
 
 @app.route('/routes/<string:route>', methods=['GET'])
 def returnAll(route):
