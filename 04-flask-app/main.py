@@ -3,7 +3,7 @@ import datetime
 
 from flask import Flask, jsonify, render_template
 # for loading secrets file
-from dotenv import load_dotenv 
+from dotenv import load_dotenv
 
 import os
 import json
@@ -39,7 +39,7 @@ with open(fname) as inpfile:
 def getTrainsWithLabel(routeId, label):
     trains = []
     for chunk in chunks:
-        #logging.debug("Found Chunk: " + chunk["id"])
+        # logging.debug("Found Chunk: " + chunk["id"])
 
         if "trip_update" in chunk:
             # trip_update:trip json
@@ -58,7 +58,7 @@ def getTrains(routeId):
     trains = []
 
     for chunk in chunks:
-        #logging.debug("Found Chunk: " + chunk["id"])
+        # logging.debug("Found Chunk: " + chunk["id"])
 
         if "trip_update" in chunk:
             # trip_update:trip json
@@ -81,7 +81,7 @@ def getTrains(routeId):
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    return jsonify({'message': 'Hello, World!'})
+    return jsonify({'message':'Hello, World!'})
 
 
 @app.route('/routes/<string:route>', methods=['GET'])
