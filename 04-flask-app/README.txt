@@ -36,3 +36,15 @@ http://localhost:5000/routes/BNSF/1215
 $ docker run -p 8000:5000 -e PORT=5000 docker/04-flask-app 
 
 http://localhost:8000/routes/BNSF/1215
+
+# To connect to the container
+
+$ docker container ls
+CONTAINER ID   IMAGE                            COMMAND                  CREATED              STATUS              PORTS                                                 NAMES
+5b1e325e441b   docker/04-flask-app              "/bin/sh -c 'exec gu…"   About a minute ago   Up About a minute   0.0.0.0:8000->5000/tcp, :::8000->5000/tcp             mystifying_euclid
+
+$ docker exec -it mystifying_euclid bash # will connect to container and give bash prompt
+
+root@5b1e325e441b:/app# ls # will show all files that were copied to the image. 
+
+
