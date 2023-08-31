@@ -5,6 +5,9 @@ __pycache__/
 env/
 venv/
 
+# emacs temp files
+\#*#
+
 # ignore secrets file
 .env
 
