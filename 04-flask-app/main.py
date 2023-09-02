@@ -1,7 +1,5 @@
 #!/bin/python
-import datetime
-
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
 # for loading secrets file
 from dotenv import load_dotenv
 
@@ -70,6 +68,7 @@ def getTrains(routeId):
                     route_id = trip["route_id"]
                 if "trip_id" in trip:
                     trip_id = trip["trip_id"]
+                    print(trip_id)
                 # logging.debug(
                 #    "Route id: [{}] trip_id [{}]".format(route_id, trip_id))
 
@@ -81,7 +80,11 @@ def getTrains(routeId):
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    return jsonify({'message':'Hello, World!'})
+    return jsonify({'message': 'Hello, World!'})
+
+@app.route('/ping')
+def ping():
+    return "pong"
 
 
 @app.route('/routes/<string:route>', methods=['GET'])
