@@ -1,0 +1,30 @@
+<html>
+<Head> </head>
+
+<body>
+
+  {% block content %}
+    <table border="1">
+      <thead>
+        <tr>
+          <th style="width: 10%;">ID</th>
+          <th style="width: 10%;">category</th>
+          <th style="width: 10%;">title</th>
+          <th style="width: 70%;">content</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for post in snippets %}
+        <tr>
+          <td> {{ post[0] }} </td>
+          <td> {{ post[1] }} </td>
+          <td> {{ post[2] }} </td>
+          <td> {{ post[3] }} </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+  {% endblock %}
+</body>
+
+</html>
