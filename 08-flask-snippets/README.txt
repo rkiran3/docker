@@ -7,4 +7,9 @@ $ source env/bin/activate
 (env) $ docker build -t 08-flask-snippets .
 
 $ docker-compose up
-$ docker-compose down 
+
+$ docker-compose down --remove-orphans 
+
+$ docker container prune
+
+$ docker logs 08-flask-snippets 
