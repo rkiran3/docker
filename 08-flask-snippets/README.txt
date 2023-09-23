@@ -6,10 +6,14 @@ $ source env/bin/activate
 
 (env) $ docker build -t 08-flask-snippets .
 
-$ docker-compose up
+# use the --detach option which will run the container standalone
+# use the --build to pick up changes, if any
+$ docker-compose up --build --detach
 
 $ docker-compose down --remove-orphans 
 
 $ docker container prune
 
 $ docker logs 08-flask-snippets 
+
+$ docker logs --follow 08-flask-snippets 

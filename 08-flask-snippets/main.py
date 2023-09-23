@@ -49,21 +49,16 @@ def result():
 
 @app.route('/snippet')
 def get_snippet():
+    return get_snippet_random(str(2))
 
+
+@app.route('/snippet/r/<string:count>')
+def get_snippet_random(count):
     cursor = conn.cursor()
-
-    cursor.execute('SELECT * FROM snippet order by random() limit 5')
-
+    cursor.execute('SELECT * FROM snippet order by random() limit ' + count)
     snippets = cursor.fetchall()
-
-    for snippet in snippets:
-        print(snippet)
-
     cursor.close()
-
-    # conn.close()
-
-    return render_template('snippets.html', snippets=snippets)
+    return render_template('snippets.html', snippets=snippets, count=count)
 
 
 if __name__ == '__main__':

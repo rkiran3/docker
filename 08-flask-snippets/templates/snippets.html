@@ -1,9 +1,9 @@
 <html>
 <Head> </head>
-
 <body>
-
   {% block content %}
+  <a href="{{ url_for('get_snippet') }}/r/{{ count }}">More Snippets </a>
+    <br />
     <table border="1">
       <thead>
         <tr>
@@ -21,9 +21,11 @@
           <td> {{ post[2] }} </td>
           <td> {{ post[3] }} </td>
         </tr>
-      {% endfor %}
+        {% endfor %}
       </tbody>
-  </table>
+    </table>
+    <br />
+    <a href={{ url_for('home') }}>Home </a>
   {% endblock %}
 </body>
 
