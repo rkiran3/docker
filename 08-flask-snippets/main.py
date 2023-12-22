@@ -47,9 +47,19 @@ def result():
     return render_template('result.html')
 
 
+@app.route('/snippets')
+def get_snippets():
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM snippet order by lstmoddt desc')
+    snippets = cursor.fetchall()
+    cursor.close()
+    return render_template('snippets.html', snippets=snippets)
+    return get_snippet_random(str(2))
+
+
 @app.route('/snippet')
 def get_snippet():
-    return get_snippet_random(str(2))
+    return get_snippet_random(str(5))
 
 
 @app.route('/snippet/r/<string:count>')
