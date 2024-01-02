@@ -1,0 +1,9 @@
+requests>=1.0.0
+Flask==2.1.0
+auth0-python>=1.0.0
+python-dotenv==1.0.0
+six>=1.0.0
+wheel>=0.41.2
+python-jose>=1.0.0
+flask-cors
+gunicorn==21.0.0
